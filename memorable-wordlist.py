@@ -20,3 +20,5 @@ for w in sorted(good_words):
     if 'é' in w:
         good_words.remove(w)
 print(sorted(good_words))
+
+print('total', len(good_words))
