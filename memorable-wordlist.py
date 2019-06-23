@@ -12,9 +12,21 @@ with open('blp-items.txt') as f:
             accuracy[word] = float(fields[4])
             response_time[word] = float(fields[2])
 
+aoa_test_based = {}
+aoa_rating = {}
+with open('aoa.txt') as f:
+    for l in f.readlines():
+        fields = l.split('\t')
+        if fields[1] == 'MEANING':
+            continue # this is the first line
+        if fields[2] != '#N/A':
+            aoa_test_based[fields[0]] = float(fields[2])
+        if fields[3] != '#N/A' and len(fields[3]) > 0:
+            aoa_rating[fields[0]] = float(fields[3])
+
 good_words = set(accuracy.keys())
 for w in sorted(good_words):
-    if accuracy[w] < 0.5:
+    if accuracy[w] < 0.6:
         good_words.remove(w)
 for w in sorted(good_words):
     if 'é' in w:
