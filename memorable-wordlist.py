@@ -57,4 +57,25 @@ for w in sorted(good_words):
         good_words.remove(w)
 print(sorted(good_words))
 
+def rating(word, verbose=False):
+    value = 0.
+    if word in concreteness:
+        if verbose:
+            print('                 concreteness', concreteness[word])
+        value += concreteness[word]*10
+    if word in valence:
+        min_valence = 3
+        if verbose:
+            print('                      valence', valence[word])
+        if valence[word] < min_valence:
+            value += 100*(valence[word] - 3)
+        else:
+            value += 10*(valence[word] - 3)
+    return value
+
+for w in sorted(good_words) + ['dog', 'cat', 'kitten', 'pedophile', 'murder']:
+    r = rating(w)
+    print('%15s %.4g' % (w, r))
+    rating(w, True)
+
 print('total', len(good_words))
