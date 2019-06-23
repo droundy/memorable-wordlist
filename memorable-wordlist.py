@@ -34,6 +34,20 @@ with open('concreteness.txt') as f:
         concreteness[fields[0]] = float(fields[2])
         percent_known[fields[0]] = float(fields[6])
 
+# In each case higher is more memorable, but in the case of valence
+# small numbers may mean things to absolutely avoid.
+valence = {}
+arousal = {}
+dominance = {}
+with open('affective_ratings.txt') as f:
+    for l in f.readlines():
+        fields = l.split(',')
+        if fields[2] == 'V.Mean.Sum':
+            continue # this is the first line
+        valence[fields[1]] = float(fields[2])
+        arousal[fields[1]] = float(fields[5])
+        dominance[fields[1]] = float(fields[8])
+
 good_words = set(accuracy.keys())
 for w in sorted(good_words):
     if accuracy[w] < 0.6:
