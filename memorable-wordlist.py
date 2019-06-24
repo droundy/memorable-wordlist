@@ -151,9 +151,10 @@ ordered = list(reversed(sorted(good_words, key=lambda w: rating(w))))
 with open('src/words.rs', 'w') as f:
     f.write('pub const LIST: &[&str] = &[\n')
     which = 0
-    for w in ordered[:5000]:
+    for w in ordered[:8192]:
         f.write('   "%s",\n' % w)
         r = rating(w)
         print('%5d: %15s %.4g' % (which, w, r))
         rating(w, True)
+        which += 1
     f.write('];\n')
