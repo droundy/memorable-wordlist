@@ -1,0 +1,7 @@
+[package]
+name = "memorable-wordlist"
+version = "0.1.0"
+authors = ["droundy <roundyd@physics.oregonstate.edu>"]
+edition = "2018"
+
+[dependencies]
