@@ -3,6 +3,11 @@ import numpy as np
 accuracy = {}
 response_time = {}
 
+badwords = set()
+with open('bad-words.txt') as f:
+    for l in f.readlines():
+        badwords.add(l.replace('\n',''))
+
 with open('blp-items.txt') as f:
     for l in f.readlines():
         fields = l.split('\t')
@@ -82,9 +87,19 @@ good_words = set(percent_known.keys())
 for w in sorted(good_words):
     if 'é' in w:
         good_words.remove(w)
+    elif w in badwords:
+        good_words.remove(w)
 
 def rating(word, verbose=False):
     value = 0.
+    if word in aoa_rating:
+        if verbose:
+            print('                        aoa_rating', aoa_rating[word])
+        value += 2*(15-aoa_rating[word])
+    if word in aoa_test_based:
+        if verbose:
+            print('                    aoa_test_based', aoa_test_based[word])
+        value += 2*(15-aoa_test_based[word])
     if word in concreteness:
         if verbose:
             print('                      concreteness', concreteness[word])
@@ -135,15 +150,10 @@ ordered = list(reversed(sorted(good_words, key=lambda w: rating(w))))
 
 with open('src/words.rs', 'w') as f:
     f.write('pub const LIST: &[&str] = &[\n')
-    for w in ordered[:10000]:
+    which = 0
+    for w in ordered[:5000]:
         f.write('   "%s",\n' % w)
+        r = rating(w)
+        print('%5d: %15s %.4g' % (which, w, r))
+        rating(w, True)
     f.write('];\n')
-
-which = 0
-for w in ordered:
-    r = rating(w)
-    print('%5d: %15s %.4g' % (which, w, r))
-    rating(w, True)
-    which += 1
-
-print('total', len(good_words))
