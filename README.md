@@ -34,10 +34,9 @@ lists.  What could be more concrete than those?
 
 These files each represent lexical research data compiled by
 [The Center for Reading Research at Ghent](http://crr.ugent.be/).
-This data includes word ratings of age of acquisition (`aoa.txt`),
-concreteness (`concreteness.txt`), valence and arousal
-(`affective_ratings`).  There is also a list of word prevalence
-(i.e. what fraction of people know the words) in `blp-items.txt`.
+This data includes word ratings of age of acquisition, concreteness,
+valence and arousal.  There is also a file full of word prevalence
+data (i.e. what fraction of people know the words).
 
 ### gsl.txt
 

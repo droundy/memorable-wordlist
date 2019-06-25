@@ -3,6 +3,8 @@ import urllib.request
 import requests
 import io
 import zipfile
+import pandas as pd
+
 def download_extract_zip(url, fname):
     """
     Download a ZIP file and extract its contents in memory
@@ -33,15 +35,13 @@ with download_extract_zip("http://crr.ugent.be/blp/txt/blp-items.txt.zip",
 
 aoa_test_based = {}
 aoa_rating = {}
-with open('aoa.txt') as f:
-    for l in f.readlines():
-        fields = l.split('\t')
-        if fields[1] == 'MEANING':
-            continue # this is the first line
-        if fields[2] != '#N/A':
-            aoa_test_based[fields[0]] = float(fields[2])
-        if fields[3] != '#N/A' and len(fields[3]) > 0:
-            aoa_rating[fields[0]] = float(fields[3])
+aoa_file = pd.read_excel('http://crr.ugent.be/papers/Master%20file%20with%20all%20values%20for%20test%20based%20AoA%20measures.xlsx')
+for i in range(aoa_file.shape[0]):
+    w = aoa_file.get_value(col='WORD', index=i)
+    if aoa_file.get_value(col='AoAtestbased', index=i) != '#N/A':
+        aoa_test_based[w] = float(aoa_file.get_value(col='AoAtestbased', index=i))
+    if aoa_file.get_value(col='AoArating', index=i) != '#N/A':
+        aoa_rating[w] = float(aoa_file.get_value(col='AoArating', index=i))
 
 gsl_freq = {}
 with open('gsl.txt') as f:
@@ -57,9 +57,9 @@ with opener.open("https://raw.githubusercontent.com/hermitdave/FrequencyWords/ma
 
 concreteness = {}
 percent_known = {}
-with open('concreteness.txt') as f:
+with opener.open('http://crr.ugent.be/papers/Concreteness_ratings_Brysbaert_et_al_BRM.txt') as f:
     for l in f.readlines():
-        fields = l.split('\t')
+        fields = l.decode('utf-8').split('\t')
         if fields[1] == 'Bigram':
             continue # this is the first line
         if fields[1] == '1':
@@ -72,9 +72,9 @@ with open('concreteness.txt') as f:
 valence = {}
 arousal = {}
 dominance = {}
-with open('affective_ratings.txt') as f:
+with opener.open('http://crr.ugent.be/papers/Ratings_Warriner_et_al.csv') as f:
     for l in f.readlines():
-        fields = l.split(',')
+        fields = l.decode('utf-8').split(',')
         if fields[2] == 'V.Mean.Sum':
             continue # this is the first line
         valence[fields[1]] = float(fields[2])
