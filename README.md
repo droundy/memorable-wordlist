@@ -1,3 +1,6 @@
+[![Crates.io version](https://img.shields.io/crates/v/memorable-wordlist.svg)](https://crates.io/crates/memorable-wordlist)
+[![Documentation](https://docs.rs/mio/badge.svg)](https://docs.rs/tinyset)
+
 # Memorable wordlist
 
 This is a list of words that are intended to be memorable (and
