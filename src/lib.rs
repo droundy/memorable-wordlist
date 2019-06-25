@@ -27,7 +27,7 @@ mod words;
 /// want to use a subset you may use the first `N` words.
 pub const WORDS: &[&str] = words::LIST;
 
-const NUM_BITS: usize = 13;
+const NUM_BITS: usize = 14;
 
 fn words_for_bits(bits: usize) -> impl Iterator<Item=&'static str> {
     use rand::Rng;

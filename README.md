@@ -55,49 +55,49 @@ in combination might seem bad or irreverent.
 
 `space_delimited`:
 ```
-snowman sleigh redwood cow
-zebra launch peanuts nest
-vine lung thigh glove
-marshmallow airplane seal pear
-smooch sofa guidebook thank
-lawyer tornado field cradle
-pilot mango waiter cream
-iron ad villa trailer
-bookshop temple coat fry
+jaw carrot granddad scale
+walrus stage sunshine flashlight
+caramel drawer door snout
+giant field rabbit handbook
+actress toffee cola hear
+tip pianist bike engineer
+running house steamboat cash
+one fossil leather waist
+mail date castle quiz
 ```
 `snake_case`:
 ```
-suitcase_yellow_coast_street
-kids_rhino_bear_giraffe
-kitchen_elm_certificate_handle
-poodle_mower_ranch_street
-mixture_pencil_bump_tall
-embryo_aunt_dairy_swimsuit
-reporter_festival_wax_nylon
-buyer_hour_bowl_print
-pit_cloth_lunch_hummingbird
+deodorant_patch_alarm_steak
+pig_butler_jukebox_cod
+helmet_hockey_photographer_cushion
+tweezers_snowy_sandwich_motel
+square_neck_school_engine
+buyer_cookie_treasure_telescope
+bourbon_chick_wrap_paintbrush
+schoolgirl_horizon_pupil_blender
+laundry_oak_pint_job
 ```
 `kebab_case`:
 ```
-spoon-tractor-tree-farm
-pepper-rocket-hillside-coin
-clown-singer-parachute-wasp
-snout-door-cradle-tuna
-blink-museum-laugh-pin
-meteor-first-girl-talk
-bamboo-crate-chick-rifle
-song-swim-fortress-bathroom
-whip-mat-park-reindeer
+dining-equipment-bank-yogurt
+jacket-boot-tulip-rodeo
+poultry-tower-vegetable-backyard
+porridge-mist-twig-eyelash
+meatball-strawberry-chamber-gunshot
+boot-thigh-news-post
+office-otter-skirt-cent
+town-magazine-menu-cracker
+lamp-vinegar-laser-butterfly
 ```
 `camel_case`:
 ```
-JawParadeAuthorRocket
-HeelTuxedoThunderstormLady
-OceanItemStudyHospital
-TeaspoonRubModelHorizon
-NostrilWallpaperGroupPup
-BangPodSaleLace
-MeterLightingRobotWallet
-InkHomeRiverStairway
-GolfLaughTextbookHamster
+StarDeodorantInsectNostril
+CombMoustacheFountainPlum
+HillHandshakeChairShadow
+LaneOnionManagerPlayer
+RavenPeakHandwritingInk
+PickMeatballBottlePath
+GroomHeartRackDuckling
+LeverPatternRibFirefly
+SnoutSleighThreadCarrot
 ```
