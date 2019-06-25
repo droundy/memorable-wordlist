@@ -1,4 +1,18 @@
 import numpy as np
+import urllib.request
+import requests
+import io
+import zipfile
+def download_extract_zip(url, fname):
+    """
+    Download a ZIP file and extract its contents in memory
+    yields (filename, file-like object) pairs
+    """
+    response = requests.get(url)
+    with zipfile.ZipFile(io.BytesIO(response.content)) as thezip:
+        return thezip.open(fname)
+
+opener = urllib.request.FancyURLopener({})
 
 accuracy = {}
 response_time = {}
@@ -7,10 +21,10 @@ badwords = set()
 with open('bad-words.txt') as f:
     for l in f.readlines():
         badwords.add(l.replace('\n',''))
-
-with open('blp-items.txt') as f:
+with download_extract_zip("http://crr.ugent.be/blp/txt/blp-items.txt.zip",
+                          "blp-items.txt") as f:
     for l in f.readlines():
-        fields = l.split('\t')
+        fields = l.decode('utf-8').split('\t')
         if fields[1] == 'W' and fields[2] != 'NA':
             # it is an actual word
             word = fields[0]
@@ -36,9 +50,9 @@ with open('gsl.txt') as f:
         gsl_freq[fields[2].replace('\n','')] = float(fields[1])/147 # normalize to dog
 
 subtitles_freq = {}
-with open('en_full.txt') as f:
+with opener.open("https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/en/en_full.txt") as f:
     for l in f.readlines():
-        fields = l.split(' ')
+        fields = l.decode('utf-8').split(' ')
         subtitles_freq[fields[0]] = float(fields[1])/125769 # normalize to dog
 
 concreteness = {}
