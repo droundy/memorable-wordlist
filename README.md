@@ -30,27 +30,23 @@ lists.  What could be more concrete than those?
 
 ## Sources
 
-### aoa.txt affective_ratings.txt blp-items.txt and concreteness.txt
-
-These files each represent lexical research data compiled by
+The `memorable-wordlist.py` script downloads and uses a variety of
+lexical data to decide which words will be most appropriate.  Several
+of the sources come from lexical research data compiled by
 [The Center for Reading Research at Ghent](http://crr.ugent.be/).
 This data includes word ratings of age of acquisition, concreteness,
 valence and arousal.  There is also a file full of word prevalence
 data (i.e. what fraction of people know the words).
 
-### gsl.txt
-
-### en_full.txt
-
-A
+We further use the frequency tables from the
+[New General Service List](http://www.newgeneralservicelist.org),
+which is a set of words for English language learners to learn.  In
+addition, we use a
 [list of word frequencies](https://github.com/hermitdave/FrequencyWords)
-compiled from the OpenSubtitles database.  This list is licensed with
-a CC-by-sa-3.0 license by Hermit Dave.
+compiled from the OpenSubtitles database.
 
-### bad-words.txt
-
-A list of "bad words" which might be considered offensive in randomly
-generated output from
+Finally, we download a list of "bad words" which might be considered
+offensive in randomly generated output from
 [Luis von Ahn's research croup](https://www.cs.cmu.edu/~biglou/resources/).
 Note that some of these aren't actually bad words, but are words that
 in combination might seem bad or irreverent.
@@ -59,49 +55,49 @@ in combination might seem bad or irreverent.
 
 `space_delimited`:
 ```
-board curved deep want
-choose pianist obey first
-skinny public steer skate
-catfish orchid peanuts sticky
-camel footprint clock cook
-get food trot olive
-gift learner stair they
-feel carry free doorman
-meteorite baggage toothpaste pupil
+snowman sleigh redwood cow
+zebra launch peanuts nest
+vine lung thigh glove
+marshmallow airplane seal pear
+smooch sofa guidebook thank
+lawyer tornado field cradle
+pilot mango waiter cream
+iron ad villa trailer
+bookshop temple coat fry
 ```
 `snake_case`:
 ```
-welcome_table_lifeboat_trophy
-speedy_meteorite_beach_wee
-doorman_woman_fluffy_youngster
-two_midnight_teapot_hope
-dance_wheel_ballroom_kind
-wealth_seaside_diner_question
-friend_helmet_canyon_biscuit
-kiss_wing_cherry_cartoon
-name_free_name_suitcase
+suitcase_yellow_coast_street
+kids_rhino_bear_giraffe
+kitchen_elm_certificate_handle
+poodle_mower_ranch_street
+mixture_pencil_bump_tall
+embryo_aunt_dairy_swimsuit
+reporter_festival_wax_nylon
+buyer_hour_bowl_print
+pit_cloth_lunch_hummingbird
 ```
 `kebab_case`:
 ```
-icebox-core-elf-cure
-spice-a-trust-cute
-loop-doodle-carpet-silent
-atlas-arrow-sandwich-cruise
-sparrow-wheat-grapefruit-meatball
-on-glee-paw-painting
-live-strawberry-plaster-clock
-smash-sparkle-jazz-wet
-advance-sherbet-mix-tour
+spoon-tractor-tree-farm
+pepper-rocket-hillside-coin
+clown-singer-parachute-wasp
+snout-door-cradle-tuna
+blink-museum-laugh-pin
+meteor-first-girl-talk
+bamboo-crate-chick-rifle
+song-swim-fortress-bathroom
+whip-mat-park-reindeer
 ```
 `camel_case`:
 ```
-SnakePastaYoungMousetrap
-FreezeKisserWetBuzzer
-ModelPraiseRhythmPlace
-TeaTraySwordfishJelly
-FancyIcebergGingerReceipt
-PantryYellowExpectBend
-RelaxSneezeSpreadToothpaste
-DrumSeatIcedPlant
-HamGlassOxYear
+JawParadeAuthorRocket
+HeelTuxedoThunderstormLady
+OceanItemStudyHospital
+TeaspoonRubModelHorizon
+NostrilWallpaperGroupPup
+BangPodSaleLace
+MeterLightingRobotWallet
+InkHomeRiverStairway
+GolfLaughTextbookHamster
 ```
