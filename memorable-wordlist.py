@@ -39,7 +39,7 @@ subtitles_freq = {}
 with open('en_full.txt') as f:
     for l in f.readlines():
         fields = l.split(' ')
-        subtitles_freq[fields[0]] = float(fields[1])/98545 # normalize to dog
+        subtitles_freq[fields[0]] = float(fields[1])/125769 # normalize to dog
 
 concreteness = {}
 percent_known = {}
