@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["David Roundy <daveroundy@gmail.com>"]
 edition = "2018"
 
+description = "List of memorable words"
+license = "MIT/Apache-2.0"
+repository = "https://github.com/droundy/memorable-wordlist"
+
 readme = "README.md"
 
 [dependencies]
