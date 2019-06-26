@@ -209,3 +209,73 @@ with open('src/words.rs', 'w') as f:
         rating(w, True)
         which += 1
     f.write('];\n')
+
+with open('memorable-wordlist.js', 'w') as f:
+    f.write('''
+const MEMORABLE_LIST = [
+''')
+    for w in ordered[:1<<14]:
+        f.write(' "%s",\n' % w)
+    f.write('''
+];
+const NUM_BITS = 14
+
+function passphrase_words_for_bits(bits) {
+  if (bits % NUM_BITS == 0) {
+    var num_words =  bits/NUM_BITS;
+  } else {
+    var num_words = bits/NUM_BITS + 1;
+  };
+  const number_per_word = Math.floor(Math.pow(2, (bits*1.0/num_words));
+  let array = new Uint32Array(4);
+  window.crypto.getRandomValues(array);
+  return array;
+}
+
+function passphrase_camel_case(bits) {
+  const array = words_for_bits(bits);
+  var pass = '';
+  for (var i in array) {
+    const name = validWords[array[i] % validWords.length];
+    pass += name.charAt(0).toUpperCase();
+    pass += name.slice(1);
+  }
+  return pass;
+}
+
+function passphrase_snake_case(bits) {
+  const array = words_for_bits(bits);
+  var pass = '';
+  for (var i in array) {
+    pass += validWords[array[i] % validWords.length];
+    if (i < array.length-1) {
+      pass += '_';
+    }
+  }
+  return pass;
+}
+
+function passphrase_kebab_case(bits) {
+  const array = words_for_bits(bits);
+  var pass = '';
+  for (var i in array) {
+    pass += validWords[array[i] % validWords.length];
+    if (i < array.length-1) {
+      pass += '-';
+    }
+  }
+  return pass;
+}
+
+function passphrase_space_delimited(bits) {
+  const array = words_for_bits(bits);
+  var pass = '';
+  for (var i in array) {
+    pass += validWords[array[i] % validWords.length];
+    if (i < array.length-1) {
+      pass += ' ';
+    }
+  }
+  return pass;
+}
+''')

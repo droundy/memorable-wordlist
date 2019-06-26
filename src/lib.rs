@@ -27,6 +27,16 @@ mod words;
 /// want to use a subset you may use the first `N` words.
 pub const WORDS: &[&str] = words::LIST;
 
+/// A javascript script that generates passphrases.
+///
+/// If it is prefered to generate passphrases on the client rather
+/// than the server, this string provides javascript code that
+/// generates passphrases in the same way that the rust code does.
+/// The functions have `passphrase_` prepended to them,
+/// e.g. `passphrase_camel_case`, and accept a number of bits just
+/// like the rust functions do.
+pub const JAVASCRIPT: &str = include_str!("../memorable-wordlist.js");
+
 const NUM_BITS: usize = 14;
 
 fn words_for_bits(bits: usize) -> impl Iterator<Item=&'static str> {
