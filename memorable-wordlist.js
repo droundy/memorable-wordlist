@@ -9188,8 +9188,8 @@ const MEMORABLE_LIST = [
  "pogo",
  "orator",
  "cipher",
- "hydrate",
  "trowel",
+ "hydrate",
  "garb",
  "bout",
  "vegan",
@@ -14739,8 +14739,8 @@ const MEMORABLE_LIST = [
  "incontinence",
  "campaigner",
  "whiteout",
- "keystroke",
  "spillover",
+ "keystroke",
  "inwards",
  "stated",
  "footboard",
@@ -16394,7 +16394,7 @@ function passphrase_words_for_bits(bits) {
   } else {
     var num_words = bits/NUM_BITS + 1;
   };
-  const number_per_word = Math.floor(Math.pow(2, (bits*1.0/num_words));
+  const number_per_word = Math.floor(Math.pow(2, (bits*1.0/num_words)));
   let array = new Uint32Array(4);
   window.crypto.getRandomValues(array);
   return array;
