@@ -15360,8 +15360,8 @@ const MEMORABLE_LIST = [
  "roadshow",
  "wow",
  "sunray",
- "submariner",
  "meadowlark",
+ "submariner",
  "policymaker",
  "unseen",
  "propulsion",
@@ -16401,10 +16401,10 @@ function passphrase_words_for_bits(bits) {
 }
 
 function passphrase_camel_case(bits) {
-  const array = words_for_bits(bits);
+  const array = passphrase_words_for_bits(bits);
   var pass = '';
   for (var i in array) {
-    const name = validWords[array[i] % validWords.length];
+    const name = MEMORABLE_LIST[array[i] % MEMORABLE_LIST.length];
     pass += name.charAt(0).toUpperCase();
     pass += name.slice(1);
   }
@@ -16412,10 +16412,10 @@ function passphrase_camel_case(bits) {
 }
 
 function passphrase_snake_case(bits) {
-  const array = words_for_bits(bits);
+  const array = passphrase_words_for_bits(bits);
   var pass = '';
   for (var i in array) {
-    pass += validWords[array[i] % validWords.length];
+    pass += MEMORABLE_LIST[array[i] % MEMORABLE_LIST.length];
     if (i < array.length-1) {
       pass += '_';
     }
@@ -16424,10 +16424,10 @@ function passphrase_snake_case(bits) {
 }
 
 function passphrase_kebab_case(bits) {
-  const array = words_for_bits(bits);
+  const array = passphrase_words_for_bits(bits);
   var pass = '';
   for (var i in array) {
-    pass += validWords[array[i] % validWords.length];
+    pass += MEMORABLE_LIST[array[i] % MEMORABLE_LIST.length];
     if (i < array.length-1) {
       pass += '-';
     }
@@ -16436,10 +16436,10 @@ function passphrase_kebab_case(bits) {
 }
 
 function passphrase_space_delimited(bits) {
-  const array = words_for_bits(bits);
+  const array = passphrase_words_for_bits(bits);
   var pass = '';
   for (var i in array) {
-    pass += validWords[array[i] % validWords.length];
+    pass += MEMORABLE_LIST[array[i] % MEMORABLE_LIST.length];
     if (i < array.length-1) {
       pass += ' ';
     }
