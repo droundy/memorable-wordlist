@@ -11,4 +11,4 @@ repository = "https://github.com/droundy/memorable-wordlist"
 readme = "README.md"
 
 [dependencies]
-rand = "0.5.0"
+rand = "0.7.0"
