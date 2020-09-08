@@ -23,6 +23,8 @@ badwords = set()
 with opener.open('https://www.cs.cmu.edu/~biglou/resources/bad-words.txt') as f:
     for l in f.readlines():
         badwords.add(l.decode('utf-8').replace('\n',''))
+badwords.add('masturbation')
+
 with download_extract_zip("http://crr.ugent.be/blp/txt/blp-items.txt.zip",
                           "blp-items.txt") as f:
     for l in f.readlines():

@@ -7457,7 +7457,6 @@ pub const LIST: &[&str] = &[
    "bluegrass",
    "plating",
    "kicker",
-   "masturbation",
    "leisure",
    "gaggle",
    "cartwheel",

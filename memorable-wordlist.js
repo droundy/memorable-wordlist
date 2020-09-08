@@ -7458,7 +7458,6 @@ const MEMORABLE_LIST = [
  "bluegrass",
  "plating",
  "kicker",
- "masturbation",
  "leisure",
  "gaggle",
  "cartwheel",
