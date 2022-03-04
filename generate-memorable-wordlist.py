@@ -19,6 +19,11 @@ opener = urllib.request.FancyURLopener({})
 accuracy = {}
 response_time = {}
 
+# NOTE:  This code is needlessly complex, slow, and fragile because I don't
+# believe that I have the right to distribute these files, so instead download
+# them. Thus this will break if the URLs change.  This is balanced by the
+# benefit of making entirely transparent what my sources are.
+
 badwords = set()
 with opener.open('https://www.cs.cmu.edu/~biglou/resources/bad-words.txt') as f:
     for l in f.readlines():
@@ -40,13 +45,13 @@ aoa_rating = {}
 aoa = {}
 aoa_file = pd.read_excel('http://crr.ugent.be/papers/Master%20file%20with%20all%20values%20for%20test%20based%20AoA%20measures.xlsx')
 for i in range(aoa_file.shape[0]):
-    w = aoa_file.get_value(col='WORD', index=i)
+    w = aoa_file['WORD'][i]
     a = []
-    if aoa_file.get_value(col='AoAtestbased', index=i) != '#N/A':
-        aoa_test_based[w] = float(aoa_file.get_value(col='AoAtestbased', index=i))
+    if aoa_file['AoAtestbased'][i] != '#N/A':
+        aoa_test_based[w] = float(aoa_file['AoAtestbased'][i])
         a.append(aoa_test_based[w])
-    if aoa_file.get_value(col='AoArating', index=i) != '#N/A':
-        aoa_rating[w] = float(aoa_file.get_value(col='AoArating', index=i))
+    if aoa_file['AoArating'][i] != '#N/A':
+        aoa_rating[w] = float(aoa_file['AoArating'][i])
         if aoa_rating[w] != aoa_rating[w]:
             del aoa_rating[w]
         else:
@@ -57,8 +62,8 @@ for i in range(aoa_file.shape[0]):
 gsl_freq = {}
 gsl_file = pd.read_excel('http://www.newgeneralservicelist.org/s/NGSL-101-with-SFI.xlsx')
 for i in range(gsl_file.shape[0]):
-    w = gsl_file.get_value(col='Lemma', index=i)
-    gsl_freq[w] = gsl_file.get_value(col='Coverage', index=i)
+    w = gsl_file['Lemma'][i]
+    gsl_freq[w] = gsl_file['Coverage'][i]
 gsl_freq_norm = gsl_freq['dog'] # normalize to dog
 for w in gsl_freq.keys():
     gsl_freq[w] /= gsl_freq_norm

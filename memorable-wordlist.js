@@ -14738,8 +14738,8 @@ const MEMORABLE_LIST = [
  "incontinence",
  "campaigner",
  "whiteout",
- "spillover",
  "keystroke",
+ "spillover",
  "inwards",
  "stated",
  "footboard",
@@ -15359,8 +15359,8 @@ const MEMORABLE_LIST = [
  "roadshow",
  "wow",
  "sunray",
- "meadowlark",
  "submariner",
+ "meadowlark",
  "policymaker",
  "unseen",
  "propulsion",
@@ -16383,6 +16383,7 @@ const MEMORABLE_LIST = [
  "rubric",
  "gilding",
  "correlation",
+ "phobia",
 
 ];
 const NUM_BITS = 14
