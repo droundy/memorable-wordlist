@@ -17,11 +17,10 @@ See the documentation for details.
 
 ## Process
 
-The alogrithm to generate the list is in `memorable-wordlist.py`.
-Basically, I came up with a hokey value for words based on wanting
+The alogrithm to generate the list is in `generate-memorable-wordlist.py`.
+Basically, I came up with a heuristic value for words based on wanting
 words to be *short*, *familiar*, *not bad*, and ideally either
-*concrete* (meaning something you can visualize) or *exciting*.  I
-expect I can do better, and intend to do so over time.  Patches are
+*concrete* (meaning something you can visualize) or *exciting*.  Presumably the metric can be improved, and hope to do so over time.  Patches are
 most welcome, as well as bug reports (e.g. if two words are
 significantly out of order on a subjective basis).
 
@@ -33,7 +32,7 @@ lists.  What could be more concrete than those?
 
 ## Sources
 
-The `memorable-wordlist.py` script downloads and uses a variety of
+The `generate-memorable-wordlist.py` script downloads and uses a variety of
 lexical data to decide which words will be most appropriate.  Several
 of the sources come from lexical research data compiled by
 [The Center for Reading Research at Ghent](http://crr.ugent.be/).
